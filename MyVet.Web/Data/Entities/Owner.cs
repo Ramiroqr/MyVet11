@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace MyVet.Web.Data.Entities
         public string CellPhone { get; set; }
 
         [MaxLength(100, ErrorMessage = "The field {0} is mandatory.")]
-        public string Addres { get; set; }
+        public string Address { get; set; }
 
         //public string FullName 
         //{
@@ -49,5 +50,9 @@ namespace MyVet.Web.Data.Entities
 
         [Display(Name = "Owner")]
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
+
+        public ICollection<Pet> Pets { get; set; }
+
+        public ICollection<Agenda> Agendas { get; set; }
     }
 }

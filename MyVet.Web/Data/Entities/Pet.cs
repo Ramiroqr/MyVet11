@@ -36,5 +36,15 @@ namespace MyVet.Web.Data.Entities
         [Display(Name = "Born")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime BornLocal => Born.ToLocalTime();
-}
+
+        public PetType PetType { get; set; }
+
+        public Owner Owner { get; set; }
+
+        public ICollection<History> Histories { get; set; }
+
+        public ICollection<Agenda> Agendas { get; set; }
+
+        
+    }
 }
